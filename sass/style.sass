@@ -1,0 +1,368 @@
+@use 'basicConfig'
+@use 'variables' as *
+@use 'mixin' as *
+
+header
+    background-image: url(../img/wavespng.png)
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: top center
+    height: 85vh
+
+    @include mobileSize
+        height: 100vh
+
+    .navbar
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 80%
+        margin: 0 auto
+        padding: .5rem
+        border-bottom: 1px solid $dark-grey
+
+        @include mobileSize
+            width: 100%
+            
+
+        &_logo
+            display: inline-block
+            font-size: 2rem
+            color: $txt-color
+            margin: 0 1rem
+
+
+            &:hover
+                color: white
+                text-shadow: 0px 0px 5px black
+            
+
+        &_ul
+            margin-right: 1rem
+
+            @include mobileSize
+                position: absolute
+                width: 100%
+                z-index: 100
+                height: 80vh
+                top: 3.8rem
+                left: 0
+                flex-wrap: wrap
+                display: none
+        
+
+            li
+                display: inline-block
+                margin: 0 0.5rem
+
+                @include mobileSize
+                    margin: 0
+                    display: flex
+                    flex-wrap: wrap
+                    width: 100%
+                    background-color: $bg-color
+                    align-items: center
+                    justify-content: center
+
+                a
+                    font-size: 1.2rem
+                    color: $txt-color
+
+                    /* TRANSFORMAR EM MIXIN */
+                    background-image: linear-gradient(transparent 0%, transparent 90%, rgba(0,0,0,0.9) 90%, rgba(0,0,0,0.9) 100%)
+                    background-repeat: no-repeat
+                    background-size: 0% 100%
+                    background-position-x: right
+                    transition: background-size 400ms
+
+                    @include mobileSize
+                        font-size: 1.8rem
+
+                    &:hover
+                        background-size: 100% 100%
+                        background-position-x: left
+
+        .activeMobile
+            display: flex
+
+        .mobile-menu
+            display: none
+
+            @include mobileSize
+                display: block
+
+            #mobile-menu-btn
+                border: none
+                font-size: 1.5rem
+                cursor: pointer
+                margin-right: 1rem
+
+    .WhoAmI
+        height: 90%
+        display: flex
+        align-items: center
+
+        &_items
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.29)
+            border-radius: 16px
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
+            backdrop-filter: blur(8.9px)
+            -webkit-backdrop-filter: blur(8.9px)
+            border: 1px solid rgba(255, 255, 255, 0.93)
+            margin: 0 10rem
+            padding: 1rem
+
+            @include mobileSize
+                margin: .5rem
+                width: 100%
+
+            
+
+            h1
+                span
+                    font-size: 3rem
+
+            #WhoAmIBtn
+                background-color: $second-color
+                color: $first-color
+                padding: 1rem
+                display: inline-block
+                border-radius: 8px
+                margin: 1rem 0
+                transition: .5s
+
+                &:hover
+                    color: $txt-color
+                    background-color: $first-color
+                    outline: 1px solid black
+
+
+.section_title
+        font-size: 2.5rem
+        padding: 1rem
+
+#toTopBtn
+    height: 3rem
+    width: 3rem
+    font-size: 1.5rem
+    position: fixed
+    bottom: 1rem
+    right: 1rem
+    z-index: 99
+    cursor: pointer
+    display: none
+
+
+main
+    background-color: $bg-color 
+    padding-top: 2rem   
+
+    .MoreAboutMe_section
+        background: linear-gradient(145deg, #ffffff, #c5c5c5)
+        box-shadow:  0px 0px 5px #797979
+        width: 80%
+        margin: 0 auto
+        border-radius: 22px
+        
+
+        &_items
+            display: flex
+            flex-wrap: wrap
+            align-items: center
+            justify-content: center
+            padding: 1rem
+
+            &_InnerTitle
+                font-size: 1.8rem
+                margin: 0 0 1rem 0
+                text-align: center
+                width: 100%
+
+            &_txtWrapper
+                text-align: center
+                font-size: 1.2rem
+                line-height: 2rem
+
+
+    .habilities_section
+
+        .habilities_section_wrapper
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-around
+            align-items: center
+
+            @include mediumSize
+                justify-content: center
+
+
+            .habilities_section_items
+                border-radius: 20px
+                background: linear-gradient(145deg, #ffffff, #c5c5c5)
+                box-shadow:  0px 0px 5px #797979
+                padding: 1.5rem
+                margin: 1rem
+                width: 30%
+                transition: transform 0.5s, box-shadow 0.5s
+                min-height: 20rem
+
+                @include mediumSize
+                    width: 45%
+                    min-height: 20rem
+
+                @include mobileSize
+                    width: 100%
+
+                &:hover
+                    transform: translateY(-5%)
+                    box-shadow: 0px 0px 10px black
+                    cursor: default
+
+                h3
+                    font-size: 1.5rem
+
+                p
+                    font-size: 1.1rem
+                    margin: 0.2rem
+                    line-height: 1.6rem
+    
+    .projects_section
+
+        &_text
+            margin: 1rem 2rem 3rem
+            font-size: 1.2rem
+
+        &_container
+            display: flex
+            justify-content: space-around
+
+            @include mediumSize
+                flex-wrap: wrap
+
+            .projects_section_items
+                width: 30%
+                padding: .2rem
+                display: inline-block
+                border-radius: 8px
+                background: linear-gradient(145deg, #ffffff, #c5c5c5)
+                box-shadow: 0px 0px 5px #4b4b4b,-5px -5px 25px #717171
+
+                @include mediumSize
+                    width: 45%
+                    margin: 1rem
+
+                @include mobileSize
+                    width: 100%
+                    margin: .5rem
+
+                &_CallToLink
+                    color: blue
+                    text-decoration: underline
+                    display: inline-block
+
+                    &:hover
+                        color: $txt-color                
+
+                &_explanationText
+                    color: $first-color
+                    margin: .8rem 0
+                    color: $txt-color
+
+                img
+                    width: 100%
+                    border-radius: 8px 8px 0 0
+                    object-fit: cover
+
+                div
+                    padding: 1rem
+
+                    .fa-js:hover
+                        color: #f7df1e
+
+                    .fa-html5:hover
+                        color: #f16529
+
+                    .fa-css3-alt:hover
+                        color: #1796d2
+
+                    .fa-sass:hover
+                        color: #cd6799
+
+                    .fa-react:hover
+                        color: #61dafb
+
+                    i
+                        cursor: default
+                        font-size: 2rem
+                        margin: 0 .2rem
+                        transition: color 0.5s
+
+
+
+            
+
+
+    .experience_section
+
+        .habilities_section_wrapper
+            padding: 5rem 0
+
+            h3
+                padding: 0 2rem
+
+
+footer
+    background-color: $second-color
+    
+    .contact_section
+        color: $bg-color
+        text-shadow: 0px 0px 5px black
+                
+        &_wrapper
+            padding: 0 2rem
+            display: flex
+            align-items: center
+            justify-content: center
+            margin: 1rem 0
+
+            ul
+                display: flex
+                flex-wrap: wrap
+                align-items: center
+                justify-content: center
+
+                @include mobileSize
+                    display: block
+                    margin: 0 auto
+                    text-align: center
+
+                li
+                    font-size: 2rem
+                    margin: 1rem 2rem 4rem
+
+                    @include mobileSize
+                        margin: 3rem 0
+
+                    a
+                        color: $bg-color
+                        display: flex
+                        align-items: center
+
+                        @include mobileSize
+                            display: inline-block
+
+
+                        &:hover
+                            color: $txt-color
+                            text-shadow: 0px 0px 5px white
+
+                        i
+                            margin: 0 .3rem
+
+
+    .footer_copyright_text
+        color: white
+        text-align: center
+        padding: 1rem
+        font-size: 1.2rem
